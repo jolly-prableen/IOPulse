@@ -1,0 +1,41 @@
+# OS Sentinel – .gitignore
+
+# Python byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Pytest cache
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# IDE / editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Environment variables / secrets
+.env
+.env.local
+*.key
+*.pem
+
+# OS generated files
+Desktop.ini
+ehthumbs.db
