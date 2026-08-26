@@ -1,5 +1,5 @@
-# OS Sentinel - Teammate B: Memory & I/O Subsystem
-# Core dependencies for Phase 1: Live Memory Monitoring
+# OS Sentinel
+# Core dependencies for Memory & I/O and Process & Concurrency subsystems
 
-psutil>=5.9.0          # Real-time system memory and process information
-matplotlib>=3.7.0      # Graphs and visualizations (used in later phases)
+psutil>=5.9.0          # Real-time system memory, process, and CPU information
+matplotlib>=3.7.0      # Graphs, visualizations, and Gantt charts

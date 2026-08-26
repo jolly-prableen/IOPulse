@@ -1,14 +1,16 @@
 """
-tests/test_dashboard.py – Unit Tests for Dashboard Input Helpers & Dispatch
-OS Sentinel – Teammate B (Phase 5)
+tests/test_dashboard.py – Unit Tests for Dashboard Input Helpers, Dispatch & GUI
+OS Sentinel
 
 These tests verify:
   - Input parsing/validation helpers (page string, request queue, ints).
   - Algorithm dispatch returns correct structured keys.
   - Invalid inputs produce proper error messages (not crashes).
   - No algorithm logic is duplicated in the dashboard module.
+  - Dashboard builds all tabs correctly (Teammate A).
 
-These tests do NOT instantiate Tkinter or depend on GUI pixel positions.
+These tests do NOT instantiate Tkinter or depend on GUI pixel positions
+for the input helper tests. The GUI tab test creates a temporary Tk root.
 """
 
 import ast
@@ -30,9 +32,12 @@ from disk_io.sstf import sstf
 from disk_io.scan import scan
 from disk_io.cscan import cscan
 
+import tkinter as tk
+from dashboard.main import build_dashboard
+
 
 # ===================================================================
-# Test: parse_page_string
+# Test: parse_page_string (Teammate B)
 # ===================================================================
 
 class TestParsePageString(unittest.TestCase):
@@ -51,7 +56,6 @@ class TestParsePageString(unittest.TestCase):
         self.assertEqual(parse_page_string("  1  2  3  "), [1, 2, 3])
 
     def test_negative_pages_allowed(self):
-        # Page numbers can be any int (algorithm-specific meaning).
         self.assertEqual(parse_page_string("-1 2 -3"), [-1, 2, -3])
 
     def test_empty_raises(self):
@@ -74,7 +78,7 @@ class TestParsePageString(unittest.TestCase):
 
 
 # ===================================================================
-# Test: parse_request_queue
+# Test: parse_request_queue (Teammate B)
 # ===================================================================
 
 class TestParseRequestQueue(unittest.TestCase):
@@ -104,7 +108,7 @@ class TestParseRequestQueue(unittest.TestCase):
 
 
 # ===================================================================
-# Test: parse_positive_int / parse_non_negative_int
+# Test: parse_positive_int / parse_non_negative_int (Teammate B)
 # ===================================================================
 
 class TestParseInt(unittest.TestCase):
@@ -141,15 +145,11 @@ class TestParseInt(unittest.TestCase):
 
 
 # ===================================================================
-# Test: Algorithm dispatch returns correct structure
+# Test: Algorithm dispatch returns correct structure (Teammate B)
 # ===================================================================
 
 class TestAlgorithmDispatch(unittest.TestCase):
-    """Verify that the existing algorithm modules return the expected keys.
-
-    This confirms the dashboard can safely access these keys without
-    duplicating any algorithm logic.
-    """
+    """Verify that the existing algorithm modules return the expected keys."""
 
     def test_fifo_returns_expected_keys(self):
         result = fifo([1, 2, 3, 1, 4], 3)
@@ -200,7 +200,6 @@ class TestAlgorithmDispatch(unittest.TestCase):
         self.assertEqual(result["algorithm"], "C-SCAN")
 
     def test_step_dict_structure(self):
-        """Each step should have from, to, distance keys."""
         result = fcfs([10, 20], 0, 100)
         for step in result["steps"]:
             self.assertIn("from", step)
@@ -208,7 +207,6 @@ class TestAlgorithmDispatch(unittest.TestCase):
             self.assertIn("distance", step)
 
     def test_page_step_structure(self):
-        """Each page step should have page, frames, hit, fault keys."""
         result = fifo([1, 2, 1], 2)
         for step in result["steps"]:
             self.assertIn("page", step)
@@ -218,26 +216,18 @@ class TestAlgorithmDispatch(unittest.TestCase):
 
 
 # ===================================================================
-# Test: Dashboard does NOT duplicate algorithm logic
+# Test: Dashboard does NOT duplicate algorithm logic (Teammate B)
 # ===================================================================
 
 class TestNoDuplicateLogic(unittest.TestCase):
-    """Verify the dashboard module does not re-implement algorithms.
-
-    We inspect the source code of the dashboard module to ensure it
-    does NOT contain page replacement or disk scheduling logic.
-    """
+    """Verify the dashboard module does not re-implement algorithms."""
 
     @classmethod
     def setUpClass(cls):
-        """Read the dashboard source code once."""
         import dashboard.memory_io_dashboard as mod
         cls.source = inspect.getsource(mod)
 
     def test_no_page_replacement_logic(self):
-        """Dashboard should not implement page replacement loops."""
-        # These are implementation patterns from the algorithms, not
-        # something the dashboard would use for display purposes.
         forbidden = [
             "next_replace = (next_replace + 1) % num_frames",
             "victim = last_used.index(min(last_used))",
@@ -250,7 +240,6 @@ class TestNoDuplicateLogic(unittest.TestCase):
             )
 
     def test_no_disk_scheduling_logic(self):
-        """Dashboard should not implement disk scheduling loops."""
         forbidden = [
             "closest = min(pending",
             "pending.remove(",
@@ -262,11 +251,37 @@ class TestNoDuplicateLogic(unittest.TestCase):
             )
 
     def test_imports_existing_modules(self):
-        """Dashboard should import from the existing module packages."""
         self.assertIn("from memory.page_replacement import", self.source)
         self.assertIn("from disk_io.fcfs import", self.source)
         self.assertIn("from memory.monitor import", self.source)
         self.assertIn("from intelligence.memory_anomaly import", self.source)
+
+
+# ===================================================================
+# Test: Dashboard builds all tabs correctly (Teammate A)
+# ===================================================================
+
+class TestDashboardTabs(unittest.TestCase):
+    """Verify the unified dashboard builds all tabs correctly."""
+
+    def test_builds_all_final_dashboard_tabs(self):
+        root = tk.Tk()
+        try:
+            notebook, _ = build_dashboard(root)
+            root.update_idletasks()
+            labels = [notebook.tab(tab, "text") for tab in notebook.tabs()]
+            panel_names = [notebook.nametowidget(tab).__class__.__name__ for tab in notebook.tabs()]
+
+            self.assertEqual(
+                labels,
+                ["Process Monitor", "CPU Scheduling", "Deadlock", "Anomaly Detection", "Alerts"],
+            )
+            self.assertEqual(
+                panel_names,
+                ["ProcessMonitorPanel", "SchedulingPanel", "DeadlockPanel", "AnomalyPanel", "AlertPanel"],
+            )
+        finally:
+            root.destroy()
 
 
 if __name__ == "__main__":
