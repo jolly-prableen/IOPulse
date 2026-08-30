@@ -1,6 +1,6 @@
 """
 tests/test_disk_scheduling.py – Comprehensive Tests for Disk Scheduling Algorithms
-OS Sentinel – Teammate B (Memory & I/O Subsystem) – Phase 3
+IOPulse – Memory & I/O Subsystem – Phase 3
 
 Tests cover:
   1. Normal request queue
@@ -19,7 +19,6 @@ Tests cover:
 """
 
 import unittest
-from copy import deepcopy
 
 from disk_io.fcfs  import fcfs, _validate_inputs
 from disk_io.sstf  import sstf

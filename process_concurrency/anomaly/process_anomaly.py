@@ -1,4 +1,4 @@
-"""Explainable process anomaly detection for OS Sentinel.
+"""Explainable process anomaly detection for IOPulse.
 
 This module intentionally avoids machine learning. It uses a small set of
 configurable rules based on recent observations from psutil and a bounded
@@ -24,7 +24,7 @@ from __future__ import annotations
 from collections import defaultdict, deque
 from datetime import datetime, timezone
 from math import isfinite
-from typing import Any, Deque, Dict, Iterable, List, Optional, Sequence
+from typing import Any, Deque, Dict, List, Optional, Sequence
 
 CPU_THRESHOLD = 90.0
 CONSECUTIVE_HIGH_CPU = 5

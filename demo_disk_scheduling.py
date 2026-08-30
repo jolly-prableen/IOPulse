@@ -1,6 +1,6 @@
 """
 demo_disk_scheduling.py – Phase 3 Demo: Disk Scheduling Algorithms
-OS Sentinel – Teammate B (Memory & I/O Subsystem)
+IOPulse – Memory & I/O Subsystem
 
 Run:  python demo_disk_scheduling.py
 """
@@ -42,8 +42,7 @@ def main():
     disk_size  = 200
 
     print()
-    print("OS Sentinel – Phase 3: Disk Scheduling Algorithms Demo")
-    print("(Teammate B – Memory & I/O Subsystem)")
+    print("IOPulse – Phase 3: Disk Scheduling Algorithms Demo")
     print()
     print(f"  Requests   : {requests}")
     print(f"  Head Start : {head}")

@@ -1,7 +1,10 @@
 """
-intelligence package – OS Sentinel (Teammate B)
+intelligence package – IOPulse
 
-This package will handle memory-side anomaly detection:
-  - Memory leak detection    (Future phases)
-  - Thrashing detection      (Future phases)
+Modules:
+  - memory_anomaly.py  – Memory leak & thrashing detection
+  - io_metrics.py      – Process-level I/O telemetry collection & rate computation
+  - io_classifier.py   – Process I/O behavior classification (CPU/IO/BALANCED/IDLE)
+  - io_anomaly.py      – Process I/O anomaly detection (spike, stall, sustained high, ratio shift)
+  - io_disk_bridge.py  – Bridge: process I/O telemetry → simulated disk scheduling analysis
 """

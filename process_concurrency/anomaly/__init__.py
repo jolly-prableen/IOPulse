@@ -1,4 +1,4 @@
-"""Process anomaly detection utilities for OS Sentinel."""
+"""Process anomaly detection utilities for IOPulse."""
 
 from .process_anomaly import (
     CPU_THRESHOLD,

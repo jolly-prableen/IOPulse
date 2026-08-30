@@ -1,4 +1,4 @@
-# OS Sentinel
+# IOPulse: Process-Aware I/O Behavior & Scheduling Intelligence Platform
 # Core dependencies for Memory & I/O and Process & Concurrency subsystems
 
 psutil>=5.9.0          # Real-time system memory, process, and CPU information

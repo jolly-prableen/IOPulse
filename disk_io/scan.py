@@ -1,6 +1,6 @@
 """
 io/scan.py – SCAN (Elevator) Disk Scheduling Algorithm
-OS Sentinel – Teammate B (Memory & I/O Subsystem)
+IOPulse – Memory & I/O Subsystem
 
 === SCAN – Elevator Algorithm ===
 

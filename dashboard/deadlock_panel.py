@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import tkinter as tk
 from tkinter import ttk, messagebox
-from typing import List, Sequence
+from typing import List
 
 from dashboard.alert_engine import AlertEngine
 from process_concurrency.deadlock.bankers_algorithm import bankers_algorithm

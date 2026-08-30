@@ -1,5 +1,5 @@
 """
-disk_io package – OS Sentinel (Teammate B)
+disk_io package – IOPulse
 
 This package handles disk scheduling simulation:
   - FCFS  (First Come First Serve)      – Phase 3

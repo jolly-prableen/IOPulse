@@ -1,6 +1,6 @@
 """
 dashboard/memory_io_dashboard.py – Memory & I/O Dashboard (Phase 5)
-OS Sentinel – Teammate B (Memory & I/O Subsystem)
+IOPulse – Memory & I/O Subsystem
 
 === PURPOSE ===
 A Tkinter + matplotlib GUI dashboard that visualizes the output of every
@@ -171,7 +171,7 @@ def parse_non_negative_int(text: str, name: str) -> int:
 # ===================================================================
 
 class MemoryIODashboard:
-    """Tkinter dashboard for OS Sentinel – Memory & I/O subsystem."""
+    """Tkinter dashboard for IOPulse – Memory & I/O subsystem."""
 
     # Refresh intervals (milliseconds)
     MEMORY_REFRESH_MS   = 2000
@@ -180,7 +180,7 @@ class MemoryIODashboard:
 
     def __init__(self, root: tk.Tk):
         self.root = root
-        self.root.title("OS Sentinel — Memory & I/O Dashboard")
+        self.root.title("IOPulse — Memory & I/O Dashboard")
         self.root.configure(bg=COLORS["bg_dark"])
         self.root.geometry("1100x780")
         self.root.minsize(900, 650)

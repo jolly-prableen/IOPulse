@@ -14,7 +14,7 @@ Otherwise, the state is UNSAFE.
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Sequence, Tuple, Union
+from typing import Any, Dict, List, Sequence
 
 
 def _validate_matrix(name: str, matrix: Sequence[Sequence[Any]], expected_rows: int, expected_cols: int) -> List[List[int]]:
