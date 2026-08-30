@@ -1,6 +1,6 @@
 """
 memory/fragmentation.py – Memory Fragmentation Simulator
-OS Sentinel – Teammate B (Memory & I/O Subsystem) – Phase 4A
+IOPulse – Memory & I/O Subsystem – Phase 4A
 
 === OS CONCEPT: MEMORY FRAGMENTATION ===
 

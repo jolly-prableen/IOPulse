@@ -1,6 +1,6 @@
 """
 intelligence/memory_anomaly.py – Memory Anomaly Detection
-OS Sentinel – Teammate B (Memory & I/O Subsystem) – Phase 4B
+IOPulse – Memory & I/O Subsystem – Phase 4B
 
 === OS CONCEPT: MEMORY ANOMALIES ===
 
@@ -314,9 +314,6 @@ def detect_thrashing(
     high_faults    = page_fault_rate >= page_fault_threshold
     high_swap      = (swap_usage_pct is not None and
                       swap_usage_pct >= swap_threshold)
-
-    # Evidence scoring (0–3).
-    evidence = sum([high_memory, high_faults, high_swap])
 
     anomaly = False
     severity = "none"

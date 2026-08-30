@@ -1,6 +1,6 @@
 """
 memory/page_replacement.py – Page Replacement Algorithm Simulations
-OS Sentinel – Teammate B (Memory & I/O Subsystem)
+IOPulse – Memory & I/O Subsystem
 
 === OS CONCEPT: PAGING AND PAGE REPLACEMENT ===
 

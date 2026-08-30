@@ -1,6 +1,6 @@
 """
 io/sstf.py – SSTF (Shortest Seek Time First) Disk Scheduling Algorithm
-OS Sentinel – Teammate B (Memory & I/O Subsystem)
+IOPulse – Memory & I/O Subsystem
 
 === SSTF – Shortest Seek Time First ===
 

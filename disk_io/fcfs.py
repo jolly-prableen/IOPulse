@@ -1,6 +1,6 @@
 """
 io/fcfs.py – FCFS (First Come First Serve) Disk Scheduling Algorithm
-OS Sentinel – Teammate B (Memory & I/O Subsystem)
+IOPulse – Memory & I/O Subsystem
 
 === OS CONCEPT: DISK SCHEDULING ===
 

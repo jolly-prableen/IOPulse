@@ -1,4 +1,4 @@
-"""CPU scheduling algorithms for OS Sentinel."""
+"""CPU scheduling algorithms for IOPulse."""
 
 from .fcfs import fcfs_schedule, Process as FcfsProcess
 from .integration import build_visualization, schedule_processes

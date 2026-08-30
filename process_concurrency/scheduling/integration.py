@@ -1,4 +1,4 @@
-"""Scheduling integration utilities for OS Sentinel.
+"""Scheduling integration utilities for IOPulse.
 
 This module provides a single interface for selecting and running the scheduling
 algorithms implemented in the project. It also builds the execution sequence and

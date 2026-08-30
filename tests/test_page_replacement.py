@@ -1,6 +1,6 @@
 """
 tests/test_page_replacement.py – Unit tests for memory/page_replacement.py
-OS Sentinel – Teammate B
+IOPulse
 
 Tests cover:
   1. Normal reference strings

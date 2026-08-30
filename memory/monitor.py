@@ -1,6 +1,6 @@
 """
 memory/monitor.py – Live Memory Monitoring Module
-OS Sentinel – Teammate B (Memory & I/O Subsystem)
+IOPulse – Memory & I/O Subsystem
 
 === OS CONCEPT ===
 In any operating system, **memory management** is one of the core responsibilities
@@ -189,7 +189,7 @@ def print_snapshot(snapshot: Optional[Dict[str, Any]] = None) -> None:
     sys_mem = snapshot["system"]
 
     print("=" * 60)
-    print("  OS Sentinel – Live Memory Snapshot")
+    print("  IOPulse – Live Memory Snapshot")
     print("=" * 60)
     print()
     print("  RAM")

@@ -1,5 +1,5 @@
 """
-dashboard package – OS Sentinel
+dashboard package – IOPulse
 
 This package provides the Tkinter + matplotlib GUI dashboard:
   - Memory & I/O Dashboard   (Phase 5)
@@ -16,6 +16,7 @@ This package provides the Tkinter + matplotlib GUI dashboard:
     - Deadlock detection (RAG & Banker's Algorithm)
     - Process anomaly detection
     - Alert engine & display
+    - IOPulse: live I/O telemetry, classification, anomaly & scheduling analysis
 """
 
 __all__ = ["main"]

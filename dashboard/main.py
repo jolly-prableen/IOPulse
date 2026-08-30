@@ -5,12 +5,13 @@ from dashboard.alert_engine import AlertEngine
 from dashboard.alert_panel import AlertPanel
 from dashboard.anomaly_panel import AnomalyPanel
 from dashboard.deadlock_panel import DeadlockPanel
+from dashboard.iopulse_panel import IOPulsePanel
 from dashboard.process_panel import ProcessMonitorPanel
 from dashboard.scheduling_panel import SchedulingPanel
 
 
 def build_dashboard(root: tk.Tk) -> tuple[ttk.Notebook, AlertEngine]:
-    root.title("OS Sentinel Dashboard")
+    root.title("IOPulse Dashboard")
     root.geometry("1100x700")
     root.minsize(800, 500)
 
@@ -28,17 +29,20 @@ def build_dashboard(root: tk.Tk) -> tuple[ttk.Notebook, AlertEngine]:
     deadlock_panel = DeadlockPanel(notebook, alert_engine)
     anomaly_panel = AnomalyPanel(notebook, alert_engine)
     alert_panel = AlertPanel(notebook, alert_engine)
+    iopulse_panel = IOPulsePanel(notebook, alert_engine)
 
     notebook.add(process_panel, text="Process Monitor")
     notebook.add(scheduling_panel, text="CPU Scheduling")
     notebook.add(deadlock_panel, text="Deadlock")
     notebook.add(anomaly_panel, text="Anomaly Detection")
     notebook.add(alert_panel, text="Alerts")
+    notebook.add(iopulse_panel, text="IOPulse")
 
     def close_dashboard() -> None:
         process_panel.stop()
         anomaly_panel.stop()
         alert_panel.stop()
+        iopulse_panel.stop()
         root.destroy()
 
     root.protocol("WM_DELETE_WINDOW", close_dashboard)

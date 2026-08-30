@@ -1,6 +1,6 @@
 """
 tests/test_dashboard.py – Unit Tests for Dashboard Input Helpers, Dispatch & GUI
-OS Sentinel
+IOPulse
 
 These tests verify:
   - Input parsing/validation helpers (page string, request queue, ints).
@@ -13,9 +13,7 @@ These tests do NOT instantiate Tkinter or depend on GUI pixel positions
 for the input helper tests. The GUI tab test creates a temporary Tk root.
 """
 
-import ast
 import inspect
-import textwrap
 import unittest
 
 from dashboard.memory_io_dashboard import (
@@ -274,11 +272,11 @@ class TestDashboardTabs(unittest.TestCase):
 
             self.assertEqual(
                 labels,
-                ["Process Monitor", "CPU Scheduling", "Deadlock", "Anomaly Detection", "Alerts"],
+                ["Process Monitor", "CPU Scheduling", "Deadlock", "Anomaly Detection", "Alerts", "IOPulse"],
             )
             self.assertEqual(
                 panel_names,
-                ["ProcessMonitorPanel", "SchedulingPanel", "DeadlockPanel", "AnomalyPanel", "AlertPanel"],
+                ["ProcessMonitorPanel", "SchedulingPanel", "DeadlockPanel", "AnomalyPanel", "AlertPanel", "IOPulsePanel"],
             )
         finally:
             root.destroy()

@@ -1,6 +1,5 @@
 """
-main.py – OS Sentinel Entry Point
-Teammate B: Memory & I/O Subsystem
+main.py – IOPulse Entry Point
 
 Usage:
     python main.py          Launch the Tkinter GUI dashboard (Phase 5)
@@ -15,8 +14,7 @@ from memory.monitor import get_memory_snapshot, print_snapshot
 def run_cli_demo():
     """Run the original Phase 1 terminal demo."""
     print()
-    print("OS Sentinel – Phase 1: Live Memory Monitoring Demo")
-    print("(Teammate B – Memory & I/O Subsystem)")
+    print("IOPulse – Phase 1: Live Memory Monitoring Demo")
     print()
 
     # Take a snapshot of system memory + top 10 processes.

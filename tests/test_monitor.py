@@ -1,6 +1,6 @@
 """
 tests/test_monitor.py – Unit tests for memory/monitor.py
-OS Sentinel – Teammate B
+IOPulse
 
 These tests verify that the monitoring functions return correctly structured
 data.  They run against the REAL system, so exact values cannot be predicted,

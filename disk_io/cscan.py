@@ -1,6 +1,6 @@
 """
 io/cscan.py – C-SCAN (Circular SCAN) Disk Scheduling Algorithm
-OS Sentinel – Teammate B (Memory & I/O Subsystem)
+IOPulse – Memory & I/O Subsystem
 
 === C-SCAN – Circular SCAN ===
 

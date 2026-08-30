@@ -1,4 +1,4 @@
-"""Deadlock detection utilities for OS Sentinel."""
+"""Deadlock detection utilities for IOPulse."""
 
 from .bankers_algorithm import bankers_algorithm, run_bankers_algorithm
 from .resource_allocation_graph import (

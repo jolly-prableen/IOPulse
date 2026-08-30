@@ -3,7 +3,7 @@ from __future__ import annotations
 import os
 import tkinter as tk
 from tkinter import ttk, messagebox
-from typing import Any, Dict, Iterable, List, Sequence, Tuple
+from typing import Any, Dict, List, Sequence
 
 from process_concurrency.scheduling.integration import generate_gantt_chart, schedule_processes
 

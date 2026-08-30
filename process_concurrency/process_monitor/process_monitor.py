@@ -1,4 +1,4 @@
-"""Real-time process monitor for OS Sentinel.
+"""Real-time process monitor for IOPulse.
 
 This module is intentionally limited to Phase 1 of the project: collecting
 live process details, displaying them in a terminal table, and refreshing at a
@@ -133,7 +133,7 @@ def run_monitor(refresh_seconds: float = 1.0, limit: Optional[int] = None) -> No
     signal.signal(signal.SIGINT, handle_sigint)
 
     print("==============================================================")
-    print("                       OS SENTINEL")
+    print("                           IOPULSE")
     print("                    PROCESS MONITOR")
     print("==============================================================")
 
@@ -142,7 +142,7 @@ def run_monitor(refresh_seconds: float = 1.0, limit: Optional[int] = None) -> No
         while not stop_requested:
             clear_terminal()
             print("==============================================================")
-            print("                       OS SENTINEL")
+            print("                           IOPULSE")
             print("                    PROCESS MONITOR")
             print("==============================================================")
             display_process_table(get_processes())
@@ -160,7 +160,7 @@ def run_monitor(refresh_seconds: float = 1.0, limit: Optional[int] = None) -> No
 
 def build_parser() -> argparse.ArgumentParser:
     """Create a small CLI parser for the phase 1 monitor."""
-    parser = argparse.ArgumentParser(description="Real-time OS Sentinel process monitor")
+    parser = argparse.ArgumentParser(description="Real-time IOPulse process monitor")
     parser.add_argument(
         "--refresh",
         type=float,
