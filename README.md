@@ -2,6 +2,61 @@
 
 IOPulse is a modular, explainable operating-systems learning platform that watches what processes actually do on disk — reads and writes, throughput, and I/O patterns — then classifies each process's CPU/I/O behavior, detects anomalies, and analyzes disk-scheduling cost. Every result carries a plain-language explanation, and everything runs in a live Tkinter + matplotlib dashboard.
 
+## Web dashboard
+
+The repository now includes a local-only FastAPI service and a React/Vite dashboard. The
+existing Tkinter application and all educational modules remain available.
+
+### Start the backend
+
+From the repository root:
+
+```powershell
+python -m pip install -r requirements.txt
+python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
+```
+
+The API and interactive schema are available at `http://127.0.0.1:8000/docs`.
+The collector is managed by the application lifespan, uses one background thread,
+keeps bounded history, and only reads process/system telemetry. It never terminates,
+reprioritizes, or modifies processes.
+
+### Start the frontend
+
+In a second terminal:
+
+```powershell
+Set-Location frontend
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173`. The frontend uses actual API responses and shows an
+explicit disconnected state instead of substituting mock metrics. The API also exposes
+validated scheduling comparison, deterministic synthetic workload generation, page
+replacement, fragmentation, anomaly, settings, and JSON/CSV export endpoints.
+
+The **System Intelligence** page (the `/lab` route) is the live analysis surface for
+RAM/swap history, accessible process memory, I/O behavior classifications, anomaly
+evidence, and scheduling analysis derived from observed I/O. Educational page
+replacement and fragmentation calculations remain backend algorithm endpoints and are
+not presented as live operating-system measurements.
+
+### Validate
+
+```powershell
+python -m pytest -q
+Set-Location frontend
+npm run typecheck
+npm run build
+```
+
+Process I/O counters contain cumulative bytes, not physical disk-cylinder locations.
+The workload-generation endpoint therefore labels its requests as synthetic and uses
+the existing deterministic mapping in `intelligence/io_disk_bridge.py`. Simulated head
+movement must not be interpreted as physical latency, queue depth, or hardware
+saturation.
+
 > **OBSERVED DATA** comes from `psutil`'s **real** per-process CPU, memory, and disk I/O telemetry (bytes read/written, I/O counters, CPU time).
 >
 > **SIMULATED DATA** are disk-cylinder request workloads that IOPulse **derives deterministically from the observed telemetry** (e.g. using each process's read/write ratio and I/O activity to synthesize a cylinder sequence), then feeds to FCFS/SSTF/SCAN/C-SCAN.

@@ -3,3 +3,5 @@
 
 psutil>=5.9.0          # Real-time system memory, process, and CPU information
 matplotlib>=3.7.0      # Graphs, visualizations, and Gantt charts
+fastapi>=0.115.0       # Local typed HTTP API
+uvicorn[standard]>=0.30.0  # ASGI server

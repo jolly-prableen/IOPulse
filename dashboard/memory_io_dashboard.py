@@ -324,7 +324,7 @@ class MemoryIODashboard:
         # Title bar
         title_frame = ttk.Frame(self.root, style="Dark.TFrame")
         title_frame.pack(fill="x", padx=12, pady=(10, 2))
-        ttk.Label(title_frame, text="🛡  OS SENTINEL",
+        ttk.Label(title_frame, text="IO Pulse",
                   style="Title.TLabel").pack(side="left")
         ttk.Label(title_frame, text="Memory & I/O Dashboard",
                   style="Dark.TLabel").pack(side="left", padx=(10, 0))

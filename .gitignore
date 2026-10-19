@@ -39,3 +39,8 @@ build/
 # OS generated files
 Desktop.ini
 ehthumbs.db
+.pytest_cache/
+__pycache__/
+*.py[cod]
+frontend/node_modules/
+frontend/dist/
